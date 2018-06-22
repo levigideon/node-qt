@@ -42,8 +42,9 @@ window.paintEvent(function(){
   p.end();
 });
 
-window.resize(300, 150);
-window.show();
+//window.resize(300, 150);
+//window.show();
+window.showFullScreen();
 
 // Join Node's event loop
 setInterval(function() {

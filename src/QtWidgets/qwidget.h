@@ -68,6 +68,7 @@ class QWidgetWrap : public QWidgetWrapBase {
   static NAN_METHOD(Y);
   static NAN_METHOD(SizeHint);
   static NAN_METHOD(SetContentsMargins);
+  static NAN_METHOD(ShowFullScreen);
 
   // Wrapped object
   QWidget* q_;

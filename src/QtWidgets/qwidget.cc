@@ -110,6 +110,7 @@ NAN_MODULE_INIT(QWidgetWrap::Initialize) {
   Nan::SetPrototypeMethod(tpl, "y", Y);
   Nan::SetPrototypeMethod(tpl, "sizeHint", SizeHint);
   Nan::SetPrototypeMethod(tpl, "setContentsMargins", SetContentsMargins);
+  Nan::SetPrototypeMethod(tpl, "showFullScreen", ShowFullScreen);
 
   // Events
   QWidgetWrapBase::Inherit(tpl);
@@ -306,6 +307,16 @@ NAN_METHOD(QWidgetWrap::SetContentsMargins) {
   QWidget* q = w->GetWrapped();
 
   q->setContentsMargins(info[0]->NumberValue(), info[1]->NumberValue(), info[2]->NumberValue(), info[3]->NumberValue());
+
+  info.GetReturnValue().Set(Nan::Undefined());
+}
+
+
+NAN_METHOD(QWidgetWrap::ShowFullScreen) {
+  QWidgetWrap* w = node::ObjectWrap::Unwrap<QWidgetWrap>(info.This());
+  QWidget* q = w->GetWrapped();
+
+  q->showFullScreen();
 
   info.GetReturnValue().Set(Nan::Undefined());
 }
